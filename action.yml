@@ -1,0 +1,20 @@
+name: 'Check files errors'
+description: 'Find file errors.'
+inputs:
+  path:
+    description: 'path to find'
+    required: false
+    default: '.'
+  patterns:
+    description: 'patterns'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.patterns }}
+branding:
+  icon: 'check'
+  color: 'purple'
